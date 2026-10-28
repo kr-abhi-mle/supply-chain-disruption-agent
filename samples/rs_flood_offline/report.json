@@ -1,0 +1,448 @@
+{
+  "query": "Flooding in Rio Grande do Sul is blocking deliveries into the state for 10 days",
+  "llm_mode": "offline",
+  "llm_notes": [],
+  "event": {
+    "disruption_type": "weather",
+    "states": [
+      "RS"
+    ],
+    "cities": [],
+    "direction": "inbound",
+    "delay_days": 10,
+    "product_focus": "heavy bulky items such as furniture and home goods",
+    "interpretation": "A weather disruption delays deliveries into the state of Rio Grande do Sul (RS) by 10 days."
+  },
+  "stopped_reason": null,
+  "assumptions": [
+    "No product focus given: ranked 'heavy bulky items such as furniture and home goods' first"
+  ],
+  "stats": {
+    "affected_items": 571,
+    "affected_orders": 466,
+    "affected_sellers": 297,
+    "affected_customers": 466,
+    "late_orders": 196,
+    "pct_late_orders": 42.1,
+    "avg_days_late": 5.3,
+    "value_at_risk_brl": 28582.71,
+    "compensation_cost_brl": 5317.61,
+    "orders_flagged_for_review": 19
+  },
+  "by_severity": {
+    "LOW": 270,
+    "MEDIUM": 42,
+    "HIGH": 82,
+    "CRITICAL": 72
+  },
+  "by_action": {
+    "R0 MONITOR": 270,
+    "R1 CANCEL": 3,
+    "R2 DELAY": 9,
+    "R3 REROUTE": 142,
+    "R4 DELAY": 42
+  },
+  "mitigation_plan": [
+    {
+      "rule": "R0",
+      "action": "MONITOR",
+      "when": "Severity LOW: the delivery buffer absorbs the delay",
+      "customer offer": "None needed, no email",
+      "orders": 270,
+      "avg days late if no action": 0.0,
+      "avg days late after action": 0.0,
+      "cost (R$)": 0.0
+    },
+    {
+      "rule": "R1",
+      "action": "CANCEL",
+      "when": "Time-sensitive item and severity HIGH or CRITICAL",
+      "customer offer": "Free cancellation with a full refund",
+      "orders": 3,
+      "avg days late if no action": 6.0,
+      "avg days late after action": null,
+      "cost (R$)": 294.24
+    },
+    {
+      "rule": "R2",
+      "action": "DELAY",
+      "when": "Bulky item (expensive and slow to reroute)",
+      "customer offer": "Freight charge refunded",
+      "orders": 9,
+      "avg days late if no action": 8.9,
+      "avg days late after action": 8.9,
+      "cost (R$)": 668.21
+    },
+    {
+      "rule": "R3",
+      "action": "REROUTE",
+      "when": "Severity HIGH or CRITICAL, small item",
+      "customer offer": "Free expedited shipping, 2 extra days instead of the full delay",
+      "orders": 142,
+      "avg days late if no action": 6.2,
+      "avg days late after action": 0.7,
+      "cost (R$)": 3755.93
+    },
+    {
+      "rule": "R4",
+      "action": "DELAY",
+      "when": "Anything else (severity MEDIUM)",
+      "customer offer": "10% voucher for the next order",
+      "orders": 42,
+      "avg days late if no action": 1.5,
+      "avg days late after action": 1.5,
+      "cost (R$)": 599.23
+    }
+  ],
+  "top_categories": [
+    {
+      "category": "housewares",
+      "items": 66,
+      "late_items": 30
+    },
+    {
+      "category": "furniture_decor",
+      "items": 53,
+      "late_items": 17
+    },
+    {
+      "category": "health_beauty",
+      "items": 46,
+      "late_items": 17
+    },
+    {
+      "category": "telephony",
+      "items": 45,
+      "late_items": 26
+    },
+    {
+      "category": "bed_bath_table",
+      "items": 43,
+      "late_items": 16
+    }
+  ],
+  "top_sellers": [
+    {
+      "seller": "1025f0e2",
+      "location": "sao paulo, SP",
+      "items": 26,
+      "orders": 16
+    },
+    {
+      "seller": "53243585",
+      "location": "lauro de freitas, BA",
+      "items": 25,
+      "orders": 5
+    },
+    {
+      "seller": "612170e3",
+      "location": "novo hamburgo, RS",
+      "items": 11,
+      "orders": 11
+    },
+    {
+      "seller": "6560211a",
+      "location": "sao paulo, SP",
+      "items": 10,
+      "orders": 9
+    },
+    {
+      "seller": "ea8482cd",
+      "location": "sao paulo, SP",
+      "items": 7,
+      "orders": 7
+    }
+  ],
+  "priority_skus": [
+    {
+      "product": "ada6a911",
+      "category": "home_appliances_2",
+      "weight_kg": 14.8,
+      "volume_l": 56,
+      "severity": "CRITICAL",
+      "why": "bulky and 25 days late; matches the product focus"
+    },
+    {
+      "product": "741e14d6",
+      "category": "baby",
+      "weight_kg": 1.4,
+      "volume_l": 60,
+      "severity": "CRITICAL",
+      "why": "bulky and 16 days late"
+    },
+    {
+      "product": "0f6aa686",
+      "category": "housewares",
+      "weight_kg": 10.4,
+      "volume_l": 40,
+      "severity": "CRITICAL",
+      "why": "bulky and 11 days late; matches the product focus"
+    },
+    {
+      "product": "66e94c5c",
+      "category": "agro_industry_and_commerce",
+      "weight_kg": 12.7,
+      "volume_l": 57,
+      "severity": "CRITICAL",
+      "why": "bulky and 9 days late"
+    },
+    {
+      "product": "f8763c8e",
+      "category": "bed_bath_table",
+      "weight_kg": 20.3,
+      "volume_l": 139,
+      "severity": "CRITICAL",
+      "why": "bulky and 5 days late; matches the product focus"
+    },
+    {
+      "product": "813a3005",
+      "category": "health_beauty",
+      "weight_kg": 12.0,
+      "volume_l": 78,
+      "severity": "CRITICAL",
+      "why": "bulky and 5 days late"
+    },
+    {
+      "product": "db96ef2a",
+      "category": "agro_industry_and_commerce",
+      "weight_kg": 12.4,
+      "volume_l": 56,
+      "severity": "CRITICAL",
+      "why": "bulky and 5 days late"
+    },
+    {
+      "product": "7814c273",
+      "category": "furniture_decor",
+      "weight_kg": 12.2,
+      "volume_l": 71,
+      "severity": "HIGH",
+      "why": "bulky and 2 days late; matches the product focus"
+    },
+    {
+      "product": "5d6bea33",
+      "category": "furniture_decor",
+      "weight_kg": 4.0,
+      "volume_l": 32,
+      "severity": "CRITICAL",
+      "why": "matches the product focus"
+    },
+    {
+      "product": "18f6ea7e",
+      "category": "kitchen_dining_laundry_garden_furniture",
+      "weight_kg": 1.9,
+      "volume_l": 24,
+      "severity": "CRITICAL",
+      "why": "matches the product focus"
+    },
+    {
+      "product": "a6ad77b1",
+      "category": "furniture_decor",
+      "weight_kg": 3.5,
+      "volume_l": 28,
+      "severity": "CRITICAL",
+      "why": "matches the product focus"
+    },
+    {
+      "product": "2216232c",
+      "category": "housewares",
+      "weight_kg": 6.8,
+      "volume_l": 32,
+      "severity": "CRITICAL",
+      "why": "matches the product focus"
+    },
+    {
+      "product": "78efe838",
+      "category": "furniture_decor",
+      "weight_kg": 2.5,
+      "volume_l": 12,
+      "severity": "HIGH",
+      "why": "matches the product focus"
+    },
+    {
+      "product": "081cac4f",
+      "category": "home_appliances",
+      "weight_kg": 0.1,
+      "volume_l": 2,
+      "severity": "HIGH",
+      "why": "matches the product focus"
+    },
+    {
+      "product": "7a5d0e89",
+      "category": "housewares",
+      "weight_kg": 2.2,
+      "volume_l": 11,
+      "severity": "HIGH",
+      "why": "matches the product focus"
+    }
+  ],
+  "emails": [
+    {
+      "order_id": "2d3b53a594f674cb7c476510f364c430",
+      "action": "CANCEL",
+      "subject": "Your order 2d3b53a5: free cancellation and full refund",
+      "body": "Hello,\n\nWe are sorry for the trouble with your order. Because of severe weather affecting deliveries into Rio Grande do Sul, your order 2d3b53a5 (food, bought on 26 July 2018) cannot reach Porto Alegre, RS in time. These items lose their value when they arrive late, so we would rather not keep you waiting.\n\nYou can cancel at no cost and receive a full refund of R$ 92.40.\n\nReply to this email to confirm the cancellation, or to keep the order if you still want it.\n\nThank you for your patience,\nCustomer Care Team",
+      "source": "template"
+    },
+    {
+      "order_id": "51d70226d271148b34f0ae2a6aaef7e8",
+      "action": "REROUTE",
+      "subject": "Your order 51d70226 is on a faster route",
+      "body": "Hello,\n\nWe are sorry for the trouble with your order. Because of severe weather affecting deliveries into Rio Grande do Sul, your order 51d70226 (furniture decor and home construction, bought on 6 August 2018) was at risk of missing its promised date of 17 August 2018.\n\nWe have moved it to an unaffected route with free expedited shipping, at no cost to you. It should now arrive in Porto Alegre, RS by 19 August 2018.\n\nYou do not need to do anything. The new route is already booked.\n\nThank you for your patience,\nCustomer Care Team",
+      "source": "template"
+    },
+    {
+      "order_id": "fdff9465ac9ce1a793bb30fa94c6f241",
+      "action": "DELAY",
+      "subject": "Your order fdff9465 is delayed, and your freight is refunded",
+      "body": "Hello,\n\nWe are sorry for the trouble with your order. Because of severe weather affecting deliveries into Rio Grande do Sul, your order fdff9465 (agro industry and commerce, bought on 29 July 2018) will miss its promised date of 8 August 2018. Large items like yours need special carriers, so we are keeping it on its current route.\n\nIt should now arrive in Dois Irmaos, RS by 17 August 2018. To make up for the wait, we have refunded your freight charge of R$ 27.63.\n\nYou do not need to do anything. The refund is automatic.\n\nThank you for your patience,\nCustomer Care Team",
+      "source": "template"
+    }
+  ],
+  "executive_summary": "A weather disruption delays deliveries into the state of Rio Grande do Sul (RS) by 10 days. It affects 466 orders (571 items) from 297 sellers. 196 orders (42.1%) will now miss their promised date, on average by 5.3 days; 72 are CRITICAL and 82 HIGH. The rules reroute 142 orders, delay 51 with compensation and offer cancellation on 3, while 270 need no action. Late orders are worth R$ 28,582.71, and the estimated compensation cost is R$ 5,317.61. The most affected categories are housewares, furniture decor, health beauty.",
+  "recommendations": [
+    "Contact the most affected sellers first about pickups and stock: seller 1025f0e2 in sao paulo, SP (16 orders), seller 53243585 in lauro de freitas, BA (5 orders), seller 612170e3 in novo hamburgo, RS (11 orders).",
+    "Book expedited capacity on unaffected routes for 142 reroutes, which cuts their average delay from 6.2 to 0.7 days at an estimated R$ 3,755.93.",
+    "Arrange special carriers for 9 bulky orders that will wait, and refund their freight (R$ 668.21 in total).",
+    "Confirm the 3 cancellations with customers; full refunds total R$ 294.24.",
+    "Review the 19 orders flagged for human review before their emails go out."
+  ],
+  "review_queue": [
+    {
+      "order_id": "734e66350ff1d845ab707409554c76c4",
+      "rule_id": "R3",
+      "action": "REROUTE",
+      "severity": "CRITICAL",
+      "flags": [
+        "already 17 days late before the disruption",
+        "still 19 days late after rerouting"
+      ],
+      "checks": [
+        "whether the customer has already complained or been compensated",
+        "whether a faster carrier is available"
+      ],
+      "note": "Already 17 days late before the disruption; still 19 days late after rerouting. The R3 REROUTE decision stands. Check whether the customer has already complained or been compensated and whether a faster carrier is available.",
+      "note_source": "template"
+    },
+    {
+      "order_id": "6d0940a8f5fba47562bb14cd97dfd6da",
+      "rule_id": "R2",
+      "action": "DELAY",
+      "severity": "CRITICAL",
+      "flags": [
+        "already 15 days late before the disruption",
+        "high-value order (R$ 2,350.00)"
+      ],
+      "checks": [
+        "whether the customer has already complained or been compensated",
+        "that the standard compensation is enough for this customer"
+      ],
+      "note": "Already 15 days late before the disruption; high-value order (R$ 2,350.00). The R2 DELAY decision stands. Check whether the customer has already complained or been compensated and that the standard compensation is enough for this customer.",
+      "note_source": "template"
+    },
+    {
+      "order_id": "ad1c31ec035e55a4187e536234b28e38",
+      "rule_id": "R3",
+      "action": "REROUTE",
+      "severity": "HIGH",
+      "flags": [
+        "2 affected items from 2 sellers"
+      ],
+      "checks": [
+        "whether the items should ship separately"
+      ],
+      "note": "2 affected items from 2 sellers. The R3 REROUTE decision stands. Check whether the items should ship separately.",
+      "note_source": "template"
+    },
+    {
+      "order_id": "758480e19da5e5b47ceb7318a5ca77fe",
+      "rule_id": "R3",
+      "action": "REROUTE",
+      "severity": "CRITICAL",
+      "flags": [
+        "already 7 days late before the disruption",
+        "still 9 days late after rerouting"
+      ],
+      "checks": [
+        "whether the customer has already complained or been compensated",
+        "whether a faster carrier is available"
+      ],
+      "note": "Already 7 days late before the disruption; still 9 days late after rerouting. The R3 REROUTE decision stands. Check whether the customer has already complained or been compensated and whether a faster carrier is available.",
+      "note_source": "template"
+    },
+    {
+      "order_id": "828999d80d891785ff88623835515884",
+      "rule_id": "R3",
+      "action": "REROUTE",
+      "severity": "CRITICAL",
+      "flags": [
+        "already 6 days late before the disruption",
+        "still 8 days late after rerouting"
+      ],
+      "checks": [
+        "whether the customer has already complained or been compensated",
+        "whether a faster carrier is available"
+      ],
+      "note": "Already 6 days late before the disruption; still 8 days late after rerouting. The R3 REROUTE decision stands. Check whether the customer has already complained or been compensated and whether a faster carrier is available.",
+      "note_source": "template"
+    }
+  ],
+  "written_by": {
+    "summary": "template",
+    "recommendations": "template",
+    "review_notes": "template"
+  },
+  "trace": [
+    {
+      "step": "1. Parse disruption",
+      "detail": "A weather disruption delays deliveries into the state of Rio Grande do Sul (RS) by 10 days. (parsed by rules)",
+      "count": 0,
+      "ms": 50
+    },
+    {
+      "step": "2. Retrieve affected items",
+      "detail": "filter {'customer_state': {'$in': ['RS']}}; 50 best matches for 'heavy bulky items such as furniture and home goods'",
+      "count": 571,
+      "ms": 162
+    },
+    {
+      "step": "3. Analyse impact",
+      "detail": "196 of 466 orders become late",
+      "count": 466,
+      "ms": 3
+    },
+    {
+      "step": "4. Decide actions",
+      "detail": "rules R0 to R4, first match wins",
+      "count": 466,
+      "ms": 0
+    },
+    {
+      "step": "5. Write customer emails",
+      "detail": "written by template",
+      "count": 3,
+      "ms": 0
+    },
+    {
+      "step": "6. Write report",
+      "detail": "Gemini calls 0, tokens 0",
+      "count": 0,
+      "ms": 1
+    }
+  ],
+  "traced_order": {
+    "order_id": "2d3b53a594f674cb7c476510f364c430",
+    "items": [
+      "food, 0.1 kg, 3 L, seller atibaia/SP to customer porto alegre/RS",
+      "food, 0.1 kg, 3 L, seller atibaia/SP to customer porto alegre/RS"
+    ],
+    "retrieval": "filter {'customer_state': {'$in': ['RS']}}",
+    "logistics": [
+      "baseline ETA 2018-08-13, promised 2018-08-16, new ETA 2018-08-23",
+      "2 affected items; the worst (food) sets the order severity",
+      "Buffer 3 days, delay 10 days, so 7 days late: CRITICAL"
+    ],
+    "decision": "R1 CANCEL: Free cancellation with a full refund of R$ 92.40. Time-sensitive goods lose their value when 7 days late, so refund instead",
+    "final_eta": null,
+    "email_subject": "Your order 2d3b53a5: free cancellation and full refund"
+  }
+}

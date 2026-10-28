@@ -1,0 +1,20 @@
+# Secrets: any env file except the example
+.env
+.env.*
+!.env.example
+
+# Python
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# Data: the raw Kaggle files and the generated index. data/processed/ and outputs/ are committed.
+raw_data/
+data/chroma/
+
+# Case study brief (the company's document, not ours to publish)
+docs/case_study/
+
+# OS
+.DS_Store

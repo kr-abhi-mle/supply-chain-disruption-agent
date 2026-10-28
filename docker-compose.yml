@@ -1,0 +1,10 @@
+services:
+  app:
+    build: .
+    env_file:
+      - path: .env
+        required: false   # no .env means offline mode: rule-based parser and template emails
+    ports:
+      - "8501:8501"
+    volumes:
+      - ./outputs:/app/outputs   # runs saved by the app appear in ./outputs on your machine

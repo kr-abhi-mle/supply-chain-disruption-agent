@@ -1,0 +1,12 @@
+# Allowlist: send Docker only what the image needs. Everything else stays out,
+# including .env, the raw data, the local index, samples, outputs and editor folders.
+*
+!requirements.txt
+!src/
+!data/processed/
+!tests/
+!app.py
+!cli.py
+!pytest.ini
+**/__pycache__
+**/*.pyc

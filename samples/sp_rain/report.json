@@ -1,0 +1,447 @@
+{
+  "query": "Heavy rains are delaying all freight leaving Sao Paulo for the next 5 days",
+  "llm_mode": "gemini (gemini-3.5-flash-lite)",
+  "llm_notes": [
+    "gemini-3.6-flash was unavailable (gemini-3.6-flash: HTTP 429), so gemini-3.5-flash-lite answered"
+  ],
+  "event": {
+    "disruption_type": "weather",
+    "states": [
+      "SP"
+    ],
+    "cities": [],
+    "direction": "outbound",
+    "delay_days": 5,
+    "product_focus": "heavy bulky items such as furniture and home goods",
+    "interpretation": "A weather disruption delays freight leaving the state of Sao Paulo (SP) by 5 days."
+  },
+  "stopped_reason": null,
+  "assumptions": [
+    "'Sao Paulo' read as the state SP. Say 'city of Sao Paulo' to mean the city.",
+    "No product focus given: ranked 'heavy bulky items such as furniture and home goods' first"
+  ],
+  "stats": {
+    "affected_items": 7959,
+    "affected_orders": 7037,
+    "affected_sellers": 922,
+    "affected_customers": 7037,
+    "late_orders": 2268,
+    "pct_late_orders": 32.2,
+    "avg_days_late": 4.2,
+    "value_at_risk_brl": 241748.63,
+    "compensation_cost_brl": 36976.82,
+    "orders_flagged_for_review": 429
+  },
+  "by_severity": {
+    "LOW": 4769,
+    "MEDIUM": 724,
+    "HIGH": 1186,
+    "CRITICAL": 358
+  },
+  "by_action": {
+    "R0 MONITOR": 4769,
+    "R1 CANCEL": 59,
+    "R2 DELAY": 96,
+    "R3 REROUTE": 1389,
+    "R4 DELAY": 724
+  },
+  "mitigation_plan": [
+    {
+      "rule": "R0",
+      "action": "MONITOR",
+      "when": "Severity LOW: the delivery buffer absorbs the delay",
+      "customer offer": "None needed, no email",
+      "orders": 4769,
+      "avg days late if no action": 0.0,
+      "avg days late after action": 0.0,
+      "cost (R$)": 0.0
+    },
+    {
+      "rule": "R1",
+      "action": "CANCEL",
+      "when": "Time-sensitive item and severity HIGH or CRITICAL",
+      "customer offer": "Free cancellation with a full refund",
+      "orders": 59,
+      "avg days late if no action": 4.8,
+      "avg days late after action": null,
+      "cost (R$)": 5167.21
+    },
+    {
+      "rule": "R2",
+      "action": "DELAY",
+      "when": "Bulky item (expensive and slow to reroute)",
+      "customer offer": "Freight charge refunded",
+      "orders": 96,
+      "avg days late if no action": 5.1,
+      "avg days late after action": 5.1,
+      "cost (R$)": 4784.5
+    },
+    {
+      "rule": "R3",
+      "action": "REROUTE",
+      "when": "Severity HIGH or CRITICAL, small item",
+      "customer offer": "Free expedited shipping, 2 extra days instead of the full delay",
+      "orders": 1389,
+      "avg days late if no action": 5.5,
+      "avg days late after action": 2.5,
+      "cost (R$)": 20033.15
+    },
+    {
+      "rule": "R4",
+      "action": "DELAY",
+      "when": "Anything else (severity MEDIUM)",
+      "customer offer": "10% voucher for the next order",
+      "orders": 724,
+      "avg days late if no action": 1.5,
+      "avg days late after action": 1.5,
+      "cost (R$)": 6991.96
+    }
+  ],
+  "top_categories": [
+    {
+      "category": "bed_bath_table",
+      "items": 856,
+      "late_items": 262
+    },
+    {
+      "category": "health_beauty",
+      "items": 817,
+      "late_items": 270
+    },
+    {
+      "category": "housewares",
+      "items": 670,
+      "late_items": 236
+    },
+    {
+      "category": "watches_gifts",
+      "items": 607,
+      "late_items": 157
+    },
+    {
+      "category": "sports_leisure",
+      "items": 503,
+      "late_items": 147
+    }
+  ],
+  "top_sellers": [
+    {
+      "seller": "6560211a",
+      "location": "sao paulo, SP",
+      "items": 349,
+      "orders": 321
+    },
+    {
+      "seller": "1025f0e2",
+      "location": "sao paulo, SP",
+      "items": 246,
+      "orders": 176
+    },
+    {
+      "seller": "4869f7a5",
+      "location": "guariba, SP",
+      "items": 127,
+      "orders": 124
+    },
+    {
+      "seller": "9f505651",
+      "location": "sao paulo, SP",
+      "items": 114,
+      "orders": 108
+    },
+    {
+      "seller": "e9779976",
+      "location": "praia grande, SP",
+      "items": 112,
+      "orders": 91
+    }
+  ],
+  "priority_skus": [
+    {
+      "product": "ada6a911",
+      "category": "home_appliances_2",
+      "weight_kg": 14.8,
+      "volume_l": 56,
+      "severity": "CRITICAL",
+      "why": "bulky and 20 days late"
+    },
+    {
+      "product": "613221d7",
+      "category": "office_furniture",
+      "weight_kg": 22.7,
+      "volume_l": 49,
+      "severity": "CRITICAL",
+      "why": "bulky and 18 days late; matches the product focus"
+    },
+    {
+      "product": "581de99f",
+      "category": "baby",
+      "weight_kg": 13.8,
+      "volume_l": 81,
+      "severity": "CRITICAL",
+      "why": "bulky and 17 days late"
+    },
+    {
+      "product": "84777fa5",
+      "category": "furniture_decor",
+      "weight_kg": 10.7,
+      "volume_l": 64,
+      "severity": "CRITICAL",
+      "why": "bulky and 17 days late"
+    },
+    {
+      "product": "f0f34793",
+      "category": "furniture_decor",
+      "weight_kg": 25.3,
+      "volume_l": 152,
+      "severity": "CRITICAL",
+      "why": "bulky and 14 days late"
+    },
+    {
+      "product": "0ec7b6a8",
+      "category": "bed_bath_table",
+      "weight_kg": 7.5,
+      "volume_l": 63,
+      "severity": "CRITICAL",
+      "why": "bulky and 13 days late"
+    },
+    {
+      "product": "0d8c593f",
+      "category": "housewares",
+      "weight_kg": 28.2,
+      "volume_l": 178,
+      "severity": "CRITICAL",
+      "why": "bulky and 12 days late"
+    },
+    {
+      "product": "db99498f",
+      "category": "office_furniture",
+      "weight_kg": 17.9,
+      "volume_l": 108,
+      "severity": "CRITICAL",
+      "why": "bulky and 11 days late"
+    },
+    {
+      "product": "a5647c44",
+      "category": "office_furniture",
+      "weight_kg": 12.2,
+      "volume_l": 80,
+      "severity": "CRITICAL",
+      "why": "bulky and 6 days late; matches the product focus"
+    },
+    {
+      "product": "914c9e9a",
+      "category": "office_furniture",
+      "weight_kg": 7.5,
+      "volume_l": 125,
+      "severity": "CRITICAL",
+      "why": "bulky and 6 days late; matches the product focus"
+    },
+    {
+      "product": "b98992ea",
+      "category": "kitchen_dining_laundry_garden_furniture",
+      "weight_kg": 10.4,
+      "volume_l": 35,
+      "severity": "CRITICAL",
+      "why": "bulky and 5 days late; matches the product focus"
+    },
+    {
+      "product": "da501879",
+      "category": "office_furniture",
+      "weight_kg": 22.6,
+      "volume_l": 38,
+      "severity": "CRITICAL",
+      "why": "bulky and 5 days late; matches the product focus"
+    },
+    {
+      "product": "2a5806f1",
+      "category": "office_furniture",
+      "weight_kg": 11.9,
+      "volume_l": 69,
+      "severity": "CRITICAL",
+      "why": "bulky and 5 days late; matches the product focus"
+    },
+    {
+      "product": "b114bf33",
+      "category": "office_furniture",
+      "weight_kg": 13.3,
+      "volume_l": 70,
+      "severity": "CRITICAL",
+      "why": "bulky and 4 days late; matches the product focus"
+    }
+  ],
+  "emails": [
+    {
+      "order_id": "28e5c316b9b1b1902c094ab90ea33ffd",
+      "action": "CANCEL",
+      "subject": "Update on your order 28e5c316",
+      "body": "Hello,\n\nWe are very sorry for the issue with your order placed on 23 August 2018. This delay was caused by severe weather affecting freight leaving Sao Paulo.\n\nSince your order originally promised for 31 August 2018 will not be delivered, we are offering a free cancellation with a full refund of R$ 147.62.\n\nReply to this email to confirm the cancellation, or to keep the order if you still want it.\n\nThank you for your patience,\nCustomer Care Team",
+      "source": "gemini"
+    },
+    {
+      "order_id": "00063b381e2406b52ad429470734ebd5",
+      "action": "REROUTE",
+      "subject": "Update on your order 00063b38",
+      "body": "Hello,\n\nWe sincerely apologize for the delay with your order of fashion bags accessories purchased on 27 July 2018.\n\nSevere weather affecting freight leaving Sao Paulo caused the delay from the originally promised delivery date of 7 August 2018. To resolve this, we have arranged free expedited shipping through an unaffected route, and your new delivery date is 9 August 2018.\n\nYou do not need to do anything. The new route is already booked.\n\nThank you for your patience,\nCustomer Care Team",
+      "source": "gemini"
+    },
+    {
+      "order_id": "1b0bc119ea5ac37e73e2275afc7904ee",
+      "action": "DELAY",
+      "subject": "Update on your order 1b0bc119",
+      "body": "Hello,\n\nWe sincerely apologize for the delay with your order of computers and furniture decor purchased on 14 August 2018. The delivery has been delayed due to severe weather affecting freight leaving Sao Paulo.\n\nYour new delivery date is 28 August 2018. As a resolution, your freight charge of R$ 75.45 has been refunded.\n\nYou do not need to do anything. The refund is automatic.\n\nThank you for your patience,\nCustomer Care Team",
+      "source": "gemini"
+    }
+  ],
+  "executive_summary": "A weather disruption delays freight leaving the state of Sao Paulo (SP) by 5 days, hitting 7,037 orders and 922 sellers. Out of the total orders, 2,268 orders will be late, averaging 4.2 days late. The disruption affects 7,959 items and 7,037 customers, with the most affected categories being bed bath table, health beauty, and housewares. The rules decided 4,769 orders for R0 MONITOR, 59 orders for R1 CANCEL, 96 orders for R2 DELAY, 1,389 orders for R3 REROUTE, and 724 orders for R4 DELAY. The value of late orders is R$ 241,748.63 with an estimated compensation cost of R$ 36,976.82.",
+  "recommendations": [
+    "Contact seller 6560211a and seller 1025f0e2 first as they have the highest volume of affected orders.",
+    "Book extra carrier capacity in sao paulo and guariba to manage the rerouted shipments.",
+    "Prepare operations for processing refunds and cancellations for the 59 orders under R1 CANCEL.",
+    "Review the 429 orders flagged for human review focusing on high-value critical items."
+  ],
+  "review_queue": [
+    {
+      "order_id": "f92d5a62c7841e7f1a73ce4a68912c4b",
+      "rule_id": "R3",
+      "action": "REROUTE",
+      "severity": "CRITICAL",
+      "flags": [
+        "already 10 days late before the disruption",
+        "still 12 days late after rerouting",
+        "high-value order (R$ 699.00)"
+      ],
+      "checks": [
+        "whether the customer has already complained or been compensated",
+        "whether a faster carrier is available",
+        "that the standard compensation is enough for this customer"
+      ],
+      "note": "This is a high-value order (R$ 699.00) that was already 10 days late before the disruption and will still be 12 days late after rerouting, so check whether the customer has already complained or been compensated, whether a faster carrier is available, and that the standard compensation is enough for this customer.",
+      "note_source": "gemini"
+    },
+    {
+      "order_id": "1b0bc119ea5ac37e73e2275afc7904ee",
+      "rule_id": "R2",
+      "action": "DELAY",
+      "severity": "CRITICAL",
+      "flags": [
+        "high-value order (R$ 1,467.80)",
+        "3 affected items from 2 sellers"
+      ],
+      "checks": [
+        "that the standard compensation is enough for this customer",
+        "whether the items should ship separately"
+      ],
+      "note": "This is a high-value order (R$ 1,467.80) with 3 affected items from 2 sellers, so check that the standard compensation is enough for this customer and whether the items should ship separately.",
+      "note_source": "gemini"
+    },
+    {
+      "order_id": "28e5c316b9b1b1902c094ab90ea33ffd",
+      "rule_id": "R1",
+      "action": "CANCEL",
+      "severity": "CRITICAL",
+      "flags": [
+        "both bulky and time-sensitive, so the cancellation rule R1 took priority over R2"
+      ],
+      "checks": [
+        "that cancelling is better than a late delivery"
+      ],
+      "note": "This order is both bulky and time-sensitive so the cancellation rule R1 took priority over R2, so check that cancelling is better than a late delivery.",
+      "note_source": "gemini"
+    },
+    {
+      "order_id": "bd429f272e71ed50b0adf8defc8d24e1",
+      "rule_id": "R3",
+      "action": "REROUTE",
+      "severity": "CRITICAL",
+      "flags": [
+        "already 7 days late before the disruption",
+        "still 9 days late after rerouting",
+        "high-value order (R$ 699.42)"
+      ],
+      "checks": [
+        "whether the customer has already complained or been compensated",
+        "whether a faster carrier is available",
+        "that the standard compensation is enough for this customer"
+      ],
+      "note": "This is a high-value order (R$ 699.42) that was already 7 days late before the disruption and will still be 9 days late after rerouting, so check whether the customer has already complained or been compensated, whether a faster carrier is available, and that the standard compensation is enough for this customer.",
+      "note_source": "gemini"
+    },
+    {
+      "order_id": "db747e7d69671f32e8e4ea7fdc1266ed",
+      "rule_id": "R3",
+      "action": "REROUTE",
+      "severity": "CRITICAL",
+      "flags": [
+        "already 7 days late before the disruption",
+        "still 9 days late after rerouting",
+        "high-value order (R$ 966.90)"
+      ],
+      "checks": [
+        "whether the customer has already complained or been compensated",
+        "whether a faster carrier is available",
+        "that the standard compensation is enough for this customer"
+      ],
+      "note": "This is a high-value order (R$ 966.90) that was already 7 days late before the disruption and will still be 9 days late after rerouting, so check whether the customer has already complained or been compensated, whether a faster carrier is available, and that the standard compensation is enough for this customer.",
+      "note_source": "gemini"
+    }
+  ],
+  "written_by": {
+    "summary": "gemini",
+    "recommendations": "gemini",
+    "review_notes": "gemini"
+  },
+  "trace": [
+    {
+      "step": "1. Parse disruption",
+      "detail": "A weather disruption delays freight leaving the state of Sao Paulo (SP) by 5 days. (parsed by gemini)",
+      "count": 0,
+      "ms": 3124
+    },
+    {
+      "step": "2. Retrieve affected items",
+      "detail": "filter {'seller_state': {'$in': ['SP']}}; 50 best matches for 'heavy bulky items such as furniture and home goods'",
+      "count": 7959,
+      "ms": 615
+    },
+    {
+      "step": "3. Analyse impact",
+      "detail": "2268 of 7037 orders become late",
+      "count": 7037,
+      "ms": 82
+    },
+    {
+      "step": "4. Decide actions",
+      "detail": "rules R0 to R4, first match wins",
+      "count": 7037,
+      "ms": 11
+    },
+    {
+      "step": "5. Write customer emails",
+      "detail": "written by gemini",
+      "count": 3,
+      "ms": 4457
+    },
+    {
+      "step": "6. Write report",
+      "detail": "Gemini calls 5, tokens 3694",
+      "count": 0,
+      "ms": 2507
+    }
+  ],
+  "traced_order": {
+    "order_id": "28e5c316b9b1b1902c094ab90ea33ffd",
+    "items": [
+      "food_drink, 10.5 kg, 28 L, seller praia grande/SP to customer sumare/SP"
+    ],
+    "retrieval": "filter {'seller_state': {'$in': ['SP']}}",
+    "logistics": [
+      "baseline ETA 2018-08-29, promised 2018-08-31, new ETA 2018-09-03",
+      "Buffer 2 days, delay 5 days, so 3 days late: HIGH",
+      "Bulky (10.5 kg, 28 L): raised to CRITICAL"
+    ],
+    "decision": "R1 CANCEL: Free cancellation with a full refund of R$ 147.62. Time-sensitive goods lose their value when 3 days late, so refund instead",
+    "final_eta": null,
+    "email_subject": "Update on your order 28e5c316"
+  }
+}
