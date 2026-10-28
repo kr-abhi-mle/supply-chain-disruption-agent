@@ -15,6 +15,21 @@ Late: 2,268 orders (32.2%), on average 4.2 days
 By rule:     R0 MONITOR 4,769, R1 CANCEL 59, R2 DELAY 96, R3 REROUTE 1,389, R4 DELAY 724
 ```
 
+## See the results first, no setup needed
+
+The repository already contains finished reports, so you can review the output before installing anything.
+
+| Where | What is in it |
+|---|---|
+| [`outputs/`](outputs/README.md) | Five Gemini-mode runs: a strike in Curitiba, port issues around Rio de Janeiro both ways, rain in Minas Gerais delaying electronics, plus Sao Paulo and Rio Grande do Sul runs saved from the web app |
+| [`samples/`](samples/README.md) | The two main scenarios, each run with Gemini and offline, with identical numbers |
+
+Open any `report.md` to read the impact summary, the mitigation plan, the orders flagged for review and
+the sample customer emails. `orders.csv` in the same folder has every affected order with its rule and
+reasons, ready to open in a spreadsheet.
+
+To run the system yourself, set it up as below.
+
 ## Set up and run locally
 
 No API key and no Kaggle download are needed: the processed 10,000-order subset is in `data/processed/`,
