@@ -1,0 +1,389 @@
+{
+  "query": "Truckers' strike in Curitiba, shipments out of the city stuck for a week",
+  "llm_mode": "gemini (gemini-3.5-flash-lite)",
+  "llm_notes": [
+    "gemini-3.6-flash was unavailable (gemini-3.6-flash: HTTP 429), so gemini-3.5-flash-lite answered"
+  ],
+  "event": {
+    "disruption_type": "strike",
+    "states": [],
+    "cities": [
+      "curitiba"
+    ],
+    "direction": "outbound",
+    "delay_days": 7,
+    "product_focus": "heavy bulky items such as furniture and home goods",
+    "interpretation": "A strike disruption delays freight leaving the city of Curitiba by 7 days."
+  },
+  "stopped_reason": null,
+  "assumptions": [
+    "No product focus given: ranked 'heavy bulky items such as furniture and home goods' first"
+  ],
+  "stats": {
+    "affected_items": 320,
+    "affected_orders": 301,
+    "affected_sellers": 57,
+    "affected_customers": 301,
+    "late_orders": 79,
+    "pct_late_orders": 26.2,
+    "avg_days_late": 4.3,
+    "value_at_risk_brl": 14223.58,
+    "compensation_cost_brl": 1569.57,
+    "orders_flagged_for_review": 8
+  },
+  "by_severity": {
+    "LOW": 222,
+    "MEDIUM": 31,
+    "HIGH": 38,
+    "CRITICAL": 10
+  },
+  "by_action": {
+    "R0 MONITOR": 222,
+    "R2 DELAY": 6,
+    "R3 REROUTE": 42,
+    "R4 DELAY": 31
+  },
+  "mitigation_plan": [
+    {
+      "rule": "R0",
+      "action": "MONITOR",
+      "when": "Severity LOW: the delivery buffer absorbs the delay",
+      "customer offer": "None needed, no email",
+      "orders": 222,
+      "avg days late if no action": 0.0,
+      "avg days late after action": 0.0,
+      "cost (R$)": 0.0
+    },
+    {
+      "rule": "R1",
+      "action": "CANCEL",
+      "when": "Time-sensitive item and severity HIGH or CRITICAL",
+      "customer offer": "Free cancellation with a full refund",
+      "orders": 0,
+      "avg days late if no action": 0,
+      "avg days late after action": null,
+      "cost (R$)": 0
+    },
+    {
+      "rule": "R2",
+      "action": "DELAY",
+      "when": "Bulky item (expensive and slow to reroute)",
+      "customer offer": "Freight charge refunded",
+      "orders": 6,
+      "avg days late if no action": 4.3,
+      "avg days late after action": 4.3,
+      "cost (R$)": 309.9
+    },
+    {
+      "rule": "R3",
+      "action": "REROUTE",
+      "when": "Severity HIGH or CRITICAL, small item",
+      "customer offer": "Free expedited shipping, 2 extra days instead of the full delay",
+      "orders": 42,
+      "avg days late if no action": 6.4,
+      "avg days late after action": 2.2,
+      "cost (R$)": 851.85
+    },
+    {
+      "rule": "R4",
+      "action": "DELAY",
+      "when": "Anything else (severity MEDIUM)",
+      "customer offer": "10% voucher for the next order",
+      "orders": 31,
+      "avg days late if no action": 1.5,
+      "avg days late after action": 1.5,
+      "cost (R$)": 407.82
+    }
+  ],
+  "top_categories": [
+    {
+      "category": "furniture_decor",
+      "items": 86,
+      "late_items": 32
+    },
+    {
+      "category": "housewares",
+      "items": 55,
+      "late_items": 6
+    },
+    {
+      "category": "sports_leisure",
+      "items": 49,
+      "late_items": 17
+    },
+    {
+      "category": "health_beauty",
+      "items": 26,
+      "late_items": 4
+    },
+    {
+      "category": "auto",
+      "items": 14,
+      "late_items": 0
+    }
+  ],
+  "top_sellers": [
+    {
+      "seller": "0241d4d5",
+      "location": "curitiba, PR",
+      "items": 50,
+      "orders": 49
+    },
+    {
+      "seller": "77530e97",
+      "location": "curitiba, PR",
+      "items": 33,
+      "orders": 26
+    },
+    {
+      "seller": "671585f5",
+      "location": "curitiba, PR",
+      "items": 27,
+      "orders": 27
+    },
+    {
+      "seller": "c3cfdc64",
+      "location": "curitiba, PR",
+      "items": 20,
+      "orders": 20
+    },
+    {
+      "seller": "ccc4bbb5",
+      "location": "curitiba, PR",
+      "items": 17,
+      "orders": 17
+    }
+  ],
+  "priority_skus": [
+    {
+      "product": "741e14d6",
+      "category": "baby",
+      "weight_kg": 1.4,
+      "volume_l": 60,
+      "severity": "CRITICAL",
+      "why": "bulky and 13 days late"
+    },
+    {
+      "product": "cc1829ca",
+      "category": "sports_leisure",
+      "weight_kg": 7.9,
+      "volume_l": 60,
+      "severity": "CRITICAL",
+      "why": "bulky and 6 days late"
+    },
+    {
+      "product": "c2fb73db",
+      "category": "baby",
+      "weight_kg": 3.6,
+      "volume_l": 60,
+      "severity": "CRITICAL",
+      "why": "bulky and 3 days late"
+    },
+    {
+      "product": "2b4472df",
+      "category": "kitchen_dining_laundry_garden_furniture",
+      "weight_kg": 13.6,
+      "volume_l": 115,
+      "severity": "HIGH",
+      "why": "bulky and 2 days late; matches the product focus"
+    },
+    {
+      "product": "5b3b5f9a",
+      "category": "toys",
+      "weight_kg": 5.4,
+      "volume_l": 60,
+      "severity": "HIGH",
+      "why": "bulky and 1 days late"
+    },
+    {
+      "product": "78efe838",
+      "category": "furniture_decor",
+      "weight_kg": 2.5,
+      "volume_l": 12,
+      "severity": "CRITICAL",
+      "why": "matches the product focus"
+    },
+    {
+      "product": "b10ecf8e",
+      "category": "furniture_decor",
+      "weight_kg": 2.3,
+      "volume_l": 22,
+      "severity": "HIGH",
+      "why": "matches the product focus"
+    },
+    {
+      "product": "3e845176",
+      "category": "furniture_decor",
+      "weight_kg": 1.6,
+      "volume_l": 7,
+      "severity": "HIGH",
+      "why": "matches the product focus"
+    },
+    {
+      "product": "d03bd02a",
+      "category": "furniture_decor",
+      "weight_kg": 1.8,
+      "volume_l": 12,
+      "severity": "HIGH",
+      "why": "matches the product focus"
+    }
+  ],
+  "emails": [
+    {
+      "order_id": "0f44fd64ee902f504aefed510fbcb8e7",
+      "action": "REROUTE",
+      "subject": "Update on your order 0f44fd64",
+      "body": "Hello,\n\nWe sincerely apologize for the delay in delivering your furniture decor purchased on 10 August 2018, which was originally promised by 20 August 2018.\n\nYour order has been affected by a transport strike affecting freight leaving Curitiba. To resolve this, we are providing free expedited shipping through an unaffected route, and your new delivery date is 22 August 2018.\n\nYou do not need to do anything. The new route is already booked.\n\nThank you for your patience,\nCustomer Care Team",
+      "source": "gemini"
+    },
+    {
+      "order_id": "4160b6447ad70e6d73f7221dd970bbe9",
+      "action": "DELAY",
+      "subject": "Update on your order 4160b644",
+      "body": "Hello,\n\nWe sincerely apologize for the delay with your sports leisure order purchased on 15 August 2018 and originally promised for delivery by 31 August 2018. This delay was caused by a transport strike affecting freight leaving Curitiba.\n\nThe new delivery date is 6 September 2018, and as a resolution, your freight charge of R$ 76.23 has been refunded.\n\nYou do not need to do anything. The refund is automatic.\n\nThank you for your patience,\nCustomer Care Team",
+      "source": "gemini"
+    }
+  ],
+  "executive_summary": "A strike disruption delays freight leaving the city of Curitiba by 7 days, hitting 301 orders and 57 sellers. A total of 79 orders will be late, with an average delay of 4.3 days. The incident affects 301 customers and 320 items across categories including furniture decor, housewares, and sports leisure. The decision rules allocated 222 orders to monitor, 6 to delay with freight refunded, 42 to reroute with free expedited shipping, and 31 to delay with a 10% voucher. The estimated compensation cost totals R$ 1,569.57 for late orders valued at R$ 14,223.58.",
+  "recommendations": [
+    "Contact sellers 0241d4d5, 77530e97, and 671585f5 first because they are the most affected in Curitiba, PR.",
+    "Book extra carrier capacity where needed to support the 42 rerouted orders and minimize further delays.",
+    "Prepare for customer communications regarding refunds and cancellations as outlined in the mitigation plan.",
+    "Review the 8 orders flagged for human review in the queue to handle critical cases appropriately."
+  ],
+  "review_queue": [
+    {
+      "order_id": "b2997e1d7061605e9285496c581d1fbd",
+      "rule_id": "R3",
+      "action": "REROUTE",
+      "severity": "CRITICAL",
+      "flags": [
+        "already 49 days late before the disruption",
+        "still 51 days late after rerouting"
+      ],
+      "checks": [
+        "whether the customer has already complained or been compensated",
+        "whether a faster carrier is available"
+      ],
+      "note": "This critical severity order was already 49 days late before the disruption and remains 51 days late after rerouting. Check whether the customer has already complained or been compensated, and whether a faster carrier is available.",
+      "note_source": "gemini"
+    },
+    {
+      "order_id": "4160b6447ad70e6d73f7221dd970bbe9",
+      "rule_id": "R2",
+      "action": "DELAY",
+      "severity": "CRITICAL",
+      "flags": [
+        "high-value order (R$ 2,999.90)"
+      ],
+      "checks": [
+        "that the standard compensation is enough for this customer"
+      ],
+      "note": "This critical severity order involves a high-value amount of R$ 2,999.90. Check that the standard compensation is enough for this customer.",
+      "note_source": "gemini"
+    },
+    {
+      "order_id": "4cf09d9e5ebbe0f91ddd7bf9aae891cd",
+      "rule_id": "R3",
+      "action": "REROUTE",
+      "severity": "CRITICAL",
+      "flags": [
+        "already 11 days late before the disruption",
+        "still 13 days late after rerouting"
+      ],
+      "checks": [
+        "whether the customer has already complained or been compensated",
+        "whether a faster carrier is available"
+      ],
+      "note": "This critical severity order was already 11 days late before the disruption and remains 13 days late after rerouting. Check whether the customer has already complained or been compensated, and whether a faster carrier is available.",
+      "note_source": "gemini"
+    },
+    {
+      "order_id": "8d041d799681ab5221f1fd956d1d59f7",
+      "rule_id": "R3",
+      "action": "REROUTE",
+      "severity": "CRITICAL",
+      "flags": [
+        "already 7 days late before the disruption",
+        "still 9 days late after rerouting"
+      ],
+      "checks": [
+        "whether the customer has already complained or been compensated",
+        "whether a faster carrier is available"
+      ],
+      "note": "This critical severity order was already 7 days late before the disruption and remains 9 days late after rerouting. Check whether the customer has already complained or been compensated, and whether a faster carrier is available.",
+      "note_source": "gemini"
+    },
+    {
+      "order_id": "9971209651bda86ae11c4d218eb2bf7d",
+      "rule_id": "R2",
+      "action": "DELAY",
+      "severity": "CRITICAL",
+      "flags": [
+        "already 6 days late before the disruption"
+      ],
+      "checks": [
+        "whether the customer has already complained or been compensated"
+      ],
+      "note": "This critical severity order was already 6 days late before the disruption. Check whether the customer has already complained or been compensated.",
+      "note_source": "gemini"
+    }
+  ],
+  "written_by": {
+    "summary": "gemini",
+    "recommendations": "gemini",
+    "review_notes": "gemini"
+  },
+  "trace": [
+    {
+      "step": "1. Parse disruption",
+      "detail": "A strike disruption delays freight leaving the city of Curitiba by 7 days. (parsed by gemini)",
+      "count": 0,
+      "ms": 2579
+    },
+    {
+      "step": "2. Retrieve affected items",
+      "detail": "filter {'seller_city': {'$in': ['curitiba']}}; 50 best matches for 'heavy bulky items such as furniture and home goods'",
+      "count": 320,
+      "ms": 379
+    },
+    {
+      "step": "3. Analyse impact",
+      "detail": "79 of 301 orders become late",
+      "count": 301,
+      "ms": 1
+    },
+    {
+      "step": "4. Decide actions",
+      "detail": "rules R0 to R4, first match wins",
+      "count": 301,
+      "ms": 0
+    },
+    {
+      "step": "5. Write customer emails",
+      "detail": "written by gemini",
+      "count": 2,
+      "ms": 2514
+    },
+    {
+      "step": "6. Write report",
+      "detail": "Gemini calls 4, tokens 2936",
+      "count": 0,
+      "ms": 2035
+    }
+  ],
+  "traced_order": {
+    "order_id": "0f44fd64ee902f504aefed510fbcb8e7",
+    "items": [
+      "furniture_decor, 0.3 kg, 8 L, seller curitiba/PR to customer sao mateus do sul/PR"
+    ],
+    "retrieval": "filter {'seller_city': {'$in': ['curitiba']}}",
+    "logistics": [
+      "baseline ETA 2018-08-20, promised 2018-08-20, new ETA 2018-08-27",
+      "Buffer 0 days, delay 7 days, so 7 days late: CRITICAL"
+    ],
+    "decision": "R3 REROUTE: Free expedited shipping through an unaffected route. Small goods move easily by another carrier: 2 extra days instead of 7",
+    "final_eta": "2018-08-22",
+    "email_subject": "Update on your order 0f44fd64"
+  }
+}

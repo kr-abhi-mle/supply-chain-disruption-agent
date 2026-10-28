@@ -1,0 +1,397 @@
+{
+  "query": "Heavy rains in Minas Gerais are delaying electronics and computer shipments leaving the state for 4 days",
+  "llm_mode": "gemini (gemini-3.5-flash-lite)",
+  "llm_notes": [
+    "gemini-3.6-flash was unavailable (gemini-3.6-flash: HTTP 429), so gemini-3.5-flash-lite answered"
+  ],
+  "event": {
+    "disruption_type": "weather",
+    "states": [
+      "MG"
+    ],
+    "cities": [],
+    "direction": "outbound",
+    "delay_days": 4,
+    "product_focus": "electronics and computer shipments",
+    "interpretation": "A weather disruption delays freight leaving the state of Minas Gerais (MG) by 4 days."
+  },
+  "stopped_reason": null,
+  "assumptions": [],
+  "stats": {
+    "affected_items": 731,
+    "affected_orders": 678,
+    "affected_sellers": 110,
+    "affected_customers": 678,
+    "late_orders": 87,
+    "pct_late_orders": 12.8,
+    "avg_days_late": 3.2,
+    "value_at_risk_brl": 10341.0,
+    "compensation_cost_brl": 1647.24,
+    "orders_flagged_for_review": 10
+  },
+  "by_severity": {
+    "LOW": 591,
+    "MEDIUM": 44,
+    "HIGH": 36,
+    "CRITICAL": 7
+  },
+  "by_action": {
+    "R0 MONITOR": 591,
+    "R2 DELAY": 4,
+    "R3 REROUTE": 39,
+    "R4 DELAY": 44
+  },
+  "mitigation_plan": [
+    {
+      "rule": "R0",
+      "action": "MONITOR",
+      "when": "Severity LOW: the delivery buffer absorbs the delay",
+      "customer offer": "None needed, no email",
+      "orders": 591,
+      "avg days late if no action": 0.0,
+      "avg days late after action": 0.0,
+      "cost (R$)": 0.0
+    },
+    {
+      "rule": "R1",
+      "action": "CANCEL",
+      "when": "Time-sensitive item and severity HIGH or CRITICAL",
+      "customer offer": "Free cancellation with a full refund",
+      "orders": 0,
+      "avg days late if no action": 0,
+      "avg days late after action": null,
+      "cost (R$)": 0
+    },
+    {
+      "rule": "R2",
+      "action": "DELAY",
+      "when": "Bulky item (expensive and slow to reroute)",
+      "customer offer": "Freight charge refunded",
+      "orders": 4,
+      "avg days late if no action": 3.0,
+      "avg days late after action": 3.0,
+      "cost (R$)": 301.52
+    },
+    {
+      "rule": "R3",
+      "action": "REROUTE",
+      "when": "Severity HIGH or CRITICAL, small item",
+      "customer offer": "Free expedited shipping, 2 extra days instead of the full delay",
+      "orders": 39,
+      "avg days late if no action": 5.2,
+      "avg days late after action": 3.2,
+      "cost (R$)": 855.48
+    },
+    {
+      "rule": "R4",
+      "action": "DELAY",
+      "when": "Anything else (severity MEDIUM)",
+      "customer offer": "10% voucher for the next order",
+      "orders": 44,
+      "avg days late if no action": 1.4,
+      "avg days late after action": 1.4,
+      "cost (R$)": 490.24
+    }
+  ],
+  "top_categories": [
+    {
+      "category": "computers_accessories",
+      "items": 100,
+      "late_items": 6
+    },
+    {
+      "category": "housewares",
+      "items": 75,
+      "late_items": 8
+    },
+    {
+      "category": "pet_shop",
+      "items": 56,
+      "late_items": 17
+    },
+    {
+      "category": "stationery",
+      "items": 46,
+      "late_items": 5
+    },
+    {
+      "category": "health_beauty",
+      "items": 43,
+      "late_items": 5
+    }
+  ],
+  "top_sellers": [
+    {
+      "seller": "85d9eb9d",
+      "location": "belo horizonte, MG",
+      "items": 55,
+      "orders": 55
+    },
+    {
+      "seller": "a1043baf",
+      "location": "ilicinea, MG",
+      "items": 43,
+      "orders": 42
+    },
+    {
+      "seller": "acce39e8",
+      "location": "contagem, MG",
+      "items": 35,
+      "orders": 35
+    },
+    {
+      "seller": "7299e27e",
+      "location": "araguari, MG",
+      "items": 34,
+      "orders": 33
+    },
+    {
+      "seller": "dbc22125",
+      "location": "borda da mata, MG",
+      "items": 30,
+      "orders": 30
+    }
+  ],
+  "priority_skus": [
+    {
+      "product": "4e191b1e",
+      "category": "home_confort",
+      "weight_kg": 2.4,
+      "volume_l": 77,
+      "severity": "CRITICAL",
+      "why": "bulky and 5 days late"
+    },
+    {
+      "product": "4b967866",
+      "category": "housewares",
+      "weight_kg": 10.8,
+      "volume_l": 59,
+      "severity": "CRITICAL",
+      "why": "bulky and 4 days late"
+    },
+    {
+      "product": "1e291c0c",
+      "category": "luggage_accessories",
+      "weight_kg": 9.6,
+      "volume_l": 75,
+      "severity": "HIGH",
+      "why": "bulky and 2 days late"
+    },
+    {
+      "product": "90c1b4e0",
+      "category": "furniture_living_room",
+      "weight_kg": 30.0,
+      "volume_l": 294,
+      "severity": "HIGH",
+      "why": "bulky and 1 days late"
+    },
+    {
+      "product": "18b0e642",
+      "category": "computers_accessories",
+      "weight_kg": 0.2,
+      "volume_l": 2,
+      "severity": "HIGH",
+      "why": "matches the product focus"
+    },
+    {
+      "product": "1af2a3ec",
+      "category": "computers_accessories",
+      "weight_kg": 0.1,
+      "volume_l": 2,
+      "severity": "MEDIUM",
+      "why": "matches the product focus"
+    },
+    {
+      "product": "a783f0d7",
+      "category": "computers_accessories",
+      "weight_kg": 0.2,
+      "volume_l": 2,
+      "severity": "LOW",
+      "why": "matches the product focus"
+    },
+    {
+      "product": "d1c42706",
+      "category": "computers_accessories",
+      "weight_kg": 6.5,
+      "volume_l": 8,
+      "severity": "LOW",
+      "why": "matches the product focus"
+    },
+    {
+      "product": "34194988",
+      "category": "computers_accessories",
+      "weight_kg": 0.1,
+      "volume_l": 8,
+      "severity": "LOW",
+      "why": "matches the product focus"
+    },
+    {
+      "product": "b8eb8663",
+      "category": "computers_accessories",
+      "weight_kg": 0.4,
+      "volume_l": 2,
+      "severity": "LOW",
+      "why": "matches the product focus"
+    }
+  ],
+  "emails": [
+    {
+      "order_id": "14a05c02d483800864e5c19a3a7f0ee2",
+      "action": "REROUTE",
+      "subject": "Update on your order 14a05c02",
+      "body": "Hello,\n\nWe sincerely apologize for the delay with your order purchased on 18 August 2018. Severe weather affecting freight leaving Minas Gerais has impacted your shipment originally promised for delivery by 29 August 2018.\n\nTo resolve this, we have arranged free expedited shipping through an unaffected route. Your new delivery date is 31 August 2018.\n\nYou do not need to do anything. The new route is already booked.\n\nThank you for your patience,\nCustomer Care Team",
+      "source": "gemini"
+    },
+    {
+      "order_id": "b9eaa4a76558ca828580d82dec38cca9",
+      "action": "DELAY",
+      "subject": "Update on your order b9eaa4a7",
+      "body": "Hello,\n\nWe sincerely apologize for the delay with your housewares order purchased on 5 August 2018 and originally promised for delivery by 17 August 2018. This delay was caused by severe weather affecting freight leaving Minas Gerais.\n\nYour new delivery date is 21 August 2018. To make things right, the freight charge of R$ 67.49 has been refunded to you.\n\nYou do not need to do anything. The refund is automatic.\n\nThank you for your patience,\nCustomer Care Team",
+      "source": "gemini"
+    }
+  ],
+  "executive_summary": "A weather disruption delays freight leaving the state of Minas Gerais (MG) by 4 days, impacting 678 orders, 731 items, 110 sellers, and 678 customers. Out of these, 87 orders are late, representing 12.8% of the total, and will be late on average by 3.2 days. The most affected categories are computers accessories, housewares, and pet shop. The rules decided to monitor 591 orders, delay 48 orders, reroute 39 orders, and cancel 0 orders. The estimated compensation cost for these disruptions is R$ 1,647.24, with the total value of late orders reaching R$ 10,341.00.",
+  "recommendations": [
+    "Contact seller 85d9eb9d, seller a1043baf, and seller acce39e8 first since they have the most affected orders.",
+    "Book extra carrier capacity where needed to support the rerouted shipments and mitigate further delays.",
+    "Prepare for any potential refunds and cancellations as flagged by the review process.",
+    "Review the human review queue thoroughly to address critical and high-severity orders."
+  ],
+  "review_queue": [
+    {
+      "order_id": "238652e39c5fdf89a8fd44776f532501",
+      "rule_id": "R3",
+      "action": "REROUTE",
+      "severity": "CRITICAL",
+      "flags": [
+        "already 38 days late before the disruption",
+        "still 40 days late after rerouting"
+      ],
+      "checks": [
+        "whether the customer has already complained or been compensated",
+        "whether a faster carrier is available"
+      ],
+      "note": "This order has a CRITICAL severity and was already 38 days late before the disruption, remaining 40 days late after rerouting. Check whether the customer has already complained or been compensated, and whether a faster carrier is available.",
+      "note_source": "gemini"
+    },
+    {
+      "order_id": "059162a0bf2726c87dd0359eef84c878",
+      "rule_id": "R2",
+      "action": "DELAY",
+      "severity": "HIGH",
+      "flags": [
+        "high-value order (R$ 839.99)"
+      ],
+      "checks": [
+        "that the standard compensation is enough for this customer"
+      ],
+      "note": "This order has a HIGH severity and is a high-value order worth R$ 839.99. Check that the standard compensation is enough for this customer.",
+      "note_source": "gemini"
+    },
+    {
+      "order_id": "0a92bad75c24fdf33ed2a18801262e89",
+      "rule_id": "R3",
+      "action": "REROUTE",
+      "severity": "CRITICAL",
+      "flags": [
+        "already 11 days late before the disruption",
+        "still 13 days late after rerouting"
+      ],
+      "checks": [
+        "whether the customer has already complained or been compensated",
+        "whether a faster carrier is available"
+      ],
+      "note": "This order has a CRITICAL severity and was already 11 days late before the disruption, remaining 13 days late after rerouting. Check whether the customer has already complained or been compensated, and whether a faster carrier is available.",
+      "note_source": "gemini"
+    },
+    {
+      "order_id": "5aa65dc27dd9c4e4d81ec84ead95feb2",
+      "rule_id": "R3",
+      "action": "REROUTE",
+      "severity": "CRITICAL",
+      "flags": [
+        "already 4 days late before the disruption",
+        "still 6 days late after rerouting"
+      ],
+      "checks": [
+        "whether the customer has already complained or been compensated",
+        "whether a faster carrier is available"
+      ],
+      "note": "This order has a CRITICAL severity and was already 4 days late before the disruption, remaining 6 days late after rerouting. Check whether the customer has already complained or been compensated, and whether a faster carrier is available.",
+      "note_source": "gemini"
+    },
+    {
+      "order_id": "11526907a9d9e94078d44fb1c4abb4ec",
+      "rule_id": "R3",
+      "action": "REROUTE",
+      "severity": "CRITICAL",
+      "flags": [
+        "already 3 days late before the disruption",
+        "still 5 days late after rerouting"
+      ],
+      "checks": [
+        "whether the customer has already complained or been compensated",
+        "whether a faster carrier is available"
+      ],
+      "note": "This order has a CRITICAL severity and was already 3 days late before the disruption, remaining 5 days late after rerouting. Check whether the customer has already complained or been compensated, and whether a faster carrier is available.",
+      "note_source": "gemini"
+    }
+  ],
+  "written_by": {
+    "summary": "gemini",
+    "recommendations": "gemini",
+    "review_notes": "gemini"
+  },
+  "trace": [
+    {
+      "step": "1. Parse disruption",
+      "detail": "A weather disruption delays freight leaving the state of Minas Gerais (MG) by 4 days. (parsed by gemini)",
+      "count": 0,
+      "ms": 2974
+    },
+    {
+      "step": "2. Retrieve affected items",
+      "detail": "filter {'seller_state': {'$in': ['MG']}}; 50 best matches for 'electronics and computer shipments'",
+      "count": 731,
+      "ms": 373
+    },
+    {
+      "step": "3. Analyse impact",
+      "detail": "87 of 678 orders become late",
+      "count": 678,
+      "ms": 3
+    },
+    {
+      "step": "4. Decide actions",
+      "detail": "rules R0 to R4, first match wins",
+      "count": 678,
+      "ms": 0
+    },
+    {
+      "step": "5. Write customer emails",
+      "detail": "written by gemini",
+      "count": 2,
+      "ms": 3573
+    },
+    {
+      "step": "6. Write report",
+      "detail": "Gemini calls 4, tokens 2980",
+      "count": 0,
+      "ms": 2268
+    }
+  ],
+  "traced_order": {
+    "order_id": "14a05c02d483800864e5c19a3a7f0ee2",
+    "items": [
+      "cool_stuff, 0.2 kg, 1 L, seller santa rita do sapucai/MG to customer sao paulo/SP"
+    ],
+    "retrieval": "filter {'seller_state': {'$in': ['MG']}}",
+    "logistics": [
+      "baseline ETA 2018-08-29, promised 2018-08-29, new ETA 2018-09-02",
+      "Buffer 0 days, delay 4 days, so 4 days late: HIGH"
+    ],
+    "decision": "R3 REROUTE: Free expedited shipping through an unaffected route. Small goods move easily by another carrier: 2 extra days instead of 4",
+    "final_eta": "2018-08-31",
+    "email_subject": "Update on your order 14a05c02"
+  }
+}

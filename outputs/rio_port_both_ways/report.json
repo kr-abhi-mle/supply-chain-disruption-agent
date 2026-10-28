@@ -1,0 +1,438 @@
+{
+  "query": "Port issues around Rio de Janeiro affecting shipments both ways for 3 days",
+  "llm_mode": "gemini (gemini-3.5-flash-lite)",
+  "llm_notes": [
+    "gemini-3.6-flash was unavailable (gemini-3.6-flash: HTTP 429), so gemini-3.5-flash-lite answered"
+  ],
+  "event": {
+    "disruption_type": "port_closure",
+    "states": [
+      "RJ"
+    ],
+    "cities": [],
+    "direction": "both",
+    "delay_days": 3,
+    "product_focus": "heavy bulky items such as furniture and home goods",
+    "interpretation": "A port closure disruption delays freight leaving and deliveries into the state of Rio de Janeiro (RJ) by 3 days."
+  },
+  "stopped_reason": null,
+  "assumptions": [
+    "'Rio de Janeiro' read as the state RJ. Say 'city of Rio de Janeiro' to mean the city.",
+    "No product focus given: ranked 'heavy bulky items such as furniture and home goods' first"
+  ],
+  "stats": {
+    "affected_items": 1743,
+    "affected_orders": 1557,
+    "affected_sellers": 561,
+    "affected_customers": 1557,
+    "late_orders": 183,
+    "pct_late_orders": 11.8,
+    "avg_days_late": 4.6,
+    "value_at_risk_brl": 25945.18,
+    "compensation_cost_brl": 3875.71,
+    "orders_flagged_for_review": 69
+  },
+  "by_severity": {
+    "LOW": 1374,
+    "MEDIUM": 58,
+    "HIGH": 80,
+    "CRITICAL": 45
+  },
+  "by_action": {
+    "R0 MONITOR": 1374,
+    "R2 DELAY": 11,
+    "R3 REROUTE": 114,
+    "R4 DELAY": 58
+  },
+  "mitigation_plan": [
+    {
+      "rule": "R0",
+      "action": "MONITOR",
+      "when": "Severity LOW: the delivery buffer absorbs the delay",
+      "customer offer": "None needed, no email",
+      "orders": 1374,
+      "avg days late if no action": 0.0,
+      "avg days late after action": 0.0,
+      "cost (R$)": 0.0
+    },
+    {
+      "rule": "R1",
+      "action": "CANCEL",
+      "when": "Time-sensitive item and severity HIGH or CRITICAL",
+      "customer offer": "Free cancellation with a full refund",
+      "orders": 0,
+      "avg days late if no action": 0,
+      "avg days late after action": null,
+      "cost (R$)": 0
+    },
+    {
+      "rule": "R2",
+      "action": "DELAY",
+      "when": "Bulky item (expensive and slow to reroute)",
+      "customer offer": "Freight charge refunded",
+      "orders": 11,
+      "avg days late if no action": 6.2,
+      "avg days late after action": 6.2,
+      "cost (R$)": 961.89
+    },
+    {
+      "rule": "R3",
+      "action": "REROUTE",
+      "when": "Severity HIGH or CRITICAL, small item",
+      "customer offer": "Free expedited shipping, 2 extra days instead of the full delay",
+      "orders": 114,
+      "avg days late if no action": 6.0,
+      "avg days late after action": 5.0,
+      "cost (R$)": 2216.79
+    },
+    {
+      "rule": "R4",
+      "action": "DELAY",
+      "when": "Anything else (severity MEDIUM)",
+      "customer offer": "10% voucher for the next order",
+      "orders": 58,
+      "avg days late if no action": 1.5,
+      "avg days late after action": 1.5,
+      "cost (R$)": 697.03
+    }
+  ],
+  "top_categories": [
+    {
+      "category": "health_beauty",
+      "items": 208,
+      "late_items": 23
+    },
+    {
+      "category": "bed_bath_table",
+      "items": 170,
+      "late_items": 29
+    },
+    {
+      "category": "housewares",
+      "items": 130,
+      "late_items": 9
+    },
+    {
+      "category": "computers_accessories",
+      "items": 124,
+      "late_items": 6
+    },
+    {
+      "category": "watches_gifts",
+      "items": 115,
+      "late_items": 11
+    }
+  ],
+  "top_sellers": [
+    {
+      "seller": "620c87c1",
+      "location": "petropolis, RJ",
+      "items": 55,
+      "orders": 52
+    },
+    {
+      "seller": "70c27847",
+      "location": "rio de janeiro, RJ",
+      "items": 41,
+      "orders": 31
+    },
+    {
+      "seller": "240b9776",
+      "location": "niteroi, RJ",
+      "items": 35,
+      "orders": 35
+    },
+    {
+      "seller": "8b9d6eec",
+      "location": "mesquita, RJ",
+      "items": 31,
+      "orders": 29
+    },
+    {
+      "seller": "6560211a",
+      "location": "sao paulo, SP",
+      "items": 30,
+      "orders": 27
+    }
+  ],
+  "priority_skus": [
+    {
+      "product": "75f6a4f0",
+      "category": "luggage_accessories",
+      "weight_kg": 16.1,
+      "volume_l": 96,
+      "severity": "CRITICAL",
+      "why": "bulky and 12 days late"
+    },
+    {
+      "product": "f0f34793",
+      "category": "furniture_decor",
+      "weight_kg": 25.3,
+      "volume_l": 152,
+      "severity": "CRITICAL",
+      "why": "bulky and 12 days late"
+    },
+    {
+      "product": "92b82f3b",
+      "category": "furniture_decor",
+      "weight_kg": 10.1,
+      "volume_l": 24,
+      "severity": "CRITICAL",
+      "why": "bulky and 9 days late; matches the product focus"
+    },
+    {
+      "product": "4ba4b0ac",
+      "category": "furniture_living_room",
+      "weight_kg": 10.6,
+      "volume_l": 40,
+      "severity": "CRITICAL",
+      "why": "bulky and 8 days late; matches the product focus"
+    },
+    {
+      "product": "27c0cea4",
+      "category": "baby",
+      "weight_kg": 13.7,
+      "volume_l": 91,
+      "severity": "CRITICAL",
+      "why": "bulky and 8 days late"
+    },
+    {
+      "product": "0b8d94b0",
+      "category": "baby",
+      "weight_kg": 13.8,
+      "volume_l": 83,
+      "severity": "CRITICAL",
+      "why": "bulky and 7 days late"
+    },
+    {
+      "product": "3ee348fb",
+      "category": "toys",
+      "weight_kg": 11.6,
+      "volume_l": 44,
+      "severity": "CRITICAL",
+      "why": "bulky and 4 days late"
+    },
+    {
+      "product": "ab89689c",
+      "category": "sports_leisure",
+      "weight_kg": 12.2,
+      "volume_l": 119,
+      "severity": "CRITICAL",
+      "why": "bulky and 3 days late"
+    },
+    {
+      "product": "2ff995ae",
+      "category": "furniture_living_room",
+      "weight_kg": 7.5,
+      "volume_l": 31,
+      "severity": "HIGH",
+      "why": "matches the product focus"
+    },
+    {
+      "product": "180fbb42",
+      "category": "furniture_living_room",
+      "weight_kg": 7.6,
+      "volume_l": 31,
+      "severity": "HIGH",
+      "why": "matches the product focus"
+    },
+    {
+      "product": "7416f209",
+      "category": "kitchen_dining_laundry_garden_furniture",
+      "weight_kg": 8.2,
+      "volume_l": 32,
+      "severity": "LOW",
+      "why": "matches the product focus"
+    },
+    {
+      "product": "90c1b4e0",
+      "category": "furniture_living_room",
+      "weight_kg": 30.0,
+      "volume_l": 294,
+      "severity": "LOW",
+      "why": "matches the product focus"
+    },
+    {
+      "product": "20c036a3",
+      "category": "kitchen_dining_laundry_garden_furniture",
+      "weight_kg": 7.6,
+      "volume_l": 30,
+      "severity": "LOW",
+      "why": "matches the product focus"
+    },
+    {
+      "product": "3cf03265",
+      "category": "furniture_decor",
+      "weight_kg": 10.7,
+      "volume_l": 30,
+      "severity": "LOW",
+      "why": "matches the product focus"
+    }
+  ],
+  "emails": [
+    {
+      "order_id": "03e5d6a8dd520898f86f8429ccd07c21",
+      "action": "REROUTE",
+      "subject": "Update on your order 03e5d6a8",
+      "body": "Hello,\n\nWe sincerely apologize for the delay with your health beauty order purchased on 30 July 2018, which was originally promised for delivery on 16 August 2018. This delay was caused by a port disruption affecting freight in and out of Rio de Janeiro.\n\nTo resolve this, we are providing free expedited shipping through an unaffected route, and your new delivery date is 18 August 2018.\n\nYou do not need to do anything. The new route is already booked.\n\nThank you for your patience,\nCustomer Care Team",
+      "source": "gemini"
+    },
+    {
+      "order_id": "a214ab5dc32ac17a484d2e0f95f8c90b",
+      "action": "DELAY",
+      "subject": "Update on your order a214ab5d",
+      "body": "Hello,\n\nWe sincerely apologize for the delay with your sports leisure order purchased on 1 August 2018 and originally promised for delivery by 10 August 2018. This delay was caused by a port disruption affecting freight in and out of Rio de Janeiro.\n\nYour new delivery date is 13 August 2018. To make things right, your freight charge of R$ 113.02 has been refunded.\n\nYou do not need to do anything. The refund is automatic.\n\nThank you for your patience,\nCustomer Care Team",
+      "source": "gemini"
+    }
+  ],
+  "executive_summary": "A port closure disruption delays freight leaving and deliveries into the state of Rio de Janeiro by 3 days. The incident impacts 1,557 orders and 561 sellers across categories such as health beauty, bed bath table, and housewares. Out of the total volume, 183 orders will be late by an average of 4.6 days. The rules decided to monitor 1,374 orders, delay 69 orders, and reroute 114 orders, with 0 cancellations. The value of late orders stands at R$ 25,945.18 with an estimated compensation cost of R$ 3,875.71.",
+  "recommendations": [
+    "Contact seller 620c87c1 in petropolis, RJ, seller 70c27847 in rio de janeiro, RJ, and seller 240b9776 in niteroi, RJ first due to their high order volumes.",
+    "Book extra carrier capacity in the affected regions to support the rerouting and delayed shipments.",
+    "Prepare for customer inquiries regarding freight refunds, vouchers, and expedited shipping offers.",
+    "Review the 69 orders flagged for human review in the review queue to ensure proper handling."
+  ],
+  "review_queue": [
+    {
+      "order_id": "c1a9b3fbea92e83c4a08229da82a0136",
+      "rule_id": "R3",
+      "action": "REROUTE",
+      "severity": "CRITICAL",
+      "flags": [
+        "already 16 days late before the disruption",
+        "still 18 days late after rerouting",
+        "high-value order (R$ 679.00)"
+      ],
+      "checks": [
+        "whether the customer has already complained or been compensated",
+        "whether a faster carrier is available",
+        "that the standard compensation is enough for this customer"
+      ],
+      "note": "This order is already 16 days late before the disruption and will still be 18 days late after rerouting, plus it is a high-value order worth R$ 679.00. Check whether the customer has already complained or been compensated, whether a faster carrier is available, and that the standard compensation is enough for this customer.",
+      "note_source": "gemini"
+    },
+    {
+      "order_id": "88fb1f364095174f013123c8a3781c31",
+      "rule_id": "R3",
+      "action": "REROUTE",
+      "severity": "CRITICAL",
+      "flags": [
+        "already 4 days late before the disruption",
+        "still 6 days late after rerouting",
+        "high-value order (R$ 619.99)"
+      ],
+      "checks": [
+        "whether the customer has already complained or been compensated",
+        "whether a faster carrier is available",
+        "that the standard compensation is enough for this customer"
+      ],
+      "note": "This order is already 4 days late before the disruption and will still be 6 days late after rerouting, plus it is a high-value order worth R$ 619.99. Check whether the customer has already complained or been compensated, whether a faster carrier is available, and that the standard compensation is enough for this customer.",
+      "note_source": "gemini"
+    },
+    {
+      "order_id": "2591f6277be80b0c25627c745ec900c4",
+      "rule_id": "R3",
+      "action": "REROUTE",
+      "severity": "CRITICAL",
+      "flags": [
+        "already 20 days late before the disruption",
+        "still 22 days late after rerouting"
+      ],
+      "checks": [
+        "whether the customer has already complained or been compensated",
+        "whether a faster carrier is available"
+      ],
+      "note": "This order is already 20 days late before the disruption and will still be 22 days late after rerouting. Check whether the customer has already complained or been compensated, and whether a faster carrier is available.",
+      "note_source": "gemini"
+    },
+    {
+      "order_id": "72652c482c51119a0a338edba23e0027",
+      "rule_id": "R3",
+      "action": "REROUTE",
+      "severity": "CRITICAL",
+      "flags": [
+        "already 18 days late before the disruption",
+        "still 20 days late after rerouting"
+      ],
+      "checks": [
+        "whether the customer has already complained or been compensated",
+        "whether a faster carrier is available"
+      ],
+      "note": "This order is already 18 days late before the disruption and will still be 20 days late after rerouting. Check whether the customer has already complained or been compensated, and whether a faster carrier is available.",
+      "note_source": "gemini"
+    },
+    {
+      "order_id": "83329d0539a9b3f087f05db119bee0d6",
+      "rule_id": "R3",
+      "action": "REROUTE",
+      "severity": "CRITICAL",
+      "flags": [
+        "already 18 days late before the disruption",
+        "still 20 days late after rerouting"
+      ],
+      "checks": [
+        "whether the customer has already complained or been compensated",
+        "whether a faster carrier is available"
+      ],
+      "note": "This order is already 18 days late before the disruption and will still be 20 days late after rerouting. Check whether the customer has already complained or been compensated, and whether a faster carrier is available.",
+      "note_source": "gemini"
+    }
+  ],
+  "written_by": {
+    "summary": "gemini",
+    "recommendations": "gemini",
+    "review_notes": "gemini"
+  },
+  "trace": [
+    {
+      "step": "1. Parse disruption",
+      "detail": "A port closure disruption delays freight leaving and deliveries into the state of Rio de Janeiro (RJ) by 3 days. (parsed by gemini)",
+      "count": 0,
+      "ms": 1631
+    },
+    {
+      "step": "2. Retrieve affected items",
+      "detail": "filter {'$or': [{'seller_state': {'$in': ['RJ']}}, {'customer_state': {'$in': ['RJ']}}]}; 50 best matches for 'heavy bulky items such as furniture and home goods'",
+      "count": 1743,
+      "ms": 517
+    },
+    {
+      "step": "3. Analyse impact",
+      "detail": "183 of 1557 orders become late",
+      "count": 1557,
+      "ms": 9
+    },
+    {
+      "step": "4. Decide actions",
+      "detail": "rules R0 to R4, first match wins",
+      "count": 1557,
+      "ms": 2
+    },
+    {
+      "step": "5. Write customer emails",
+      "detail": "written by gemini",
+      "count": 2,
+      "ms": 2504
+    },
+    {
+      "step": "6. Write report",
+      "detail": "Gemini calls 4, tokens 3174",
+      "count": 0,
+      "ms": 2052
+    }
+  ],
+  "traced_order": {
+    "order_id": "03e5d6a8dd520898f86f8429ccd07c21",
+    "items": [
+      "health_beauty, 0.3 kg, 4 L, seller sao paulo/SP to customer rio de janeiro/RJ"
+    ],
+    "retrieval": "filter {'$or': [{'seller_state': {'$in': ['RJ']}}, {'customer_state': {'$in': ['RJ']}}]}",
+    "logistics": [
+      "baseline ETA 2018-08-16, promised 2018-08-16, new ETA 2018-08-19",
+      "Buffer 0 days, delay 3 days, so 3 days late: HIGH"
+    ],
+    "decision": "R3 REROUTE: Free expedited shipping through an unaffected route. Small goods move easily by another carrier: 2 extra days instead of 3",
+    "final_eta": "2018-08-18",
+    "email_subject": "Update on your order 03e5d6a8"
+  }
+}
