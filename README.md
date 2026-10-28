@@ -29,7 +29,7 @@ about 3 minutes the first time, and running it again skips whatever is already d
 **macOS or Linux**
 
 ```bash
-git clone <repo-url> && cd <repo-folder>
+git clone https://github.com/kr-abhi-mle/supply-chain-disruption-agent.git && cd supply-chain-disruption-agent
 make setup          # then, optionally, paste your Gemini key into .env (step 4) and run: make check-key
 make offline        # run the Sao Paulo example offline
 make app            # start the web app on http://localhost:8501
@@ -38,7 +38,7 @@ make app            # start the web app on http://localhost:8501
 **Windows (PowerShell)**
 
 ```powershell
-git clone <repo-url>; cd <repo-folder>
+git clone https://github.com/kr-abhi-mle/supply-chain-disruption-agent.git; cd supply-chain-disruption-agent
 py tasks.py setup   # then, optionally, run: notepad .env, paste your key (step 4), and run: py tasks.py check-key
 py tasks.py offline
 py tasks.py app
@@ -79,8 +79,8 @@ The steps below are what `setup` does, for doing it by hand.
 ### Step 1: Get the code
 
 ```bash
-git clone <repo-url>
-cd <repo-folder>
+git clone https://github.com/kr-abhi-mle/supply-chain-disruption-agent.git
+cd supply-chain-disruption-agent
 ```
 
 Run every command below from this folder.
@@ -175,8 +175,8 @@ Windows has no `make`, but `py tasks.py` runs every task. Use one of these three
 which sets up WSL 2 for you. Then, in PowerShell:
 
 ```powershell
-git clone <repo-url>
-cd <repo-folder>
+git clone https://github.com/kr-abhi-mle/supply-chain-disruption-agent.git
+cd supply-chain-disruption-agent
 docker compose up --build
 ```
 
